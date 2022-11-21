@@ -4,47 +4,78 @@ function getComputerChoice() {
   return choices[index];
 }
 
-function getPlayerChoice() {
-  let playersWeapon = prompt(
-    "What is your weapon? Choose between rock, paper, and scissors"
-  );
-  return playersWeapon;
-}
+const paperEl = document.querySelector(".paper");
+const rockEl = document.querySelector(".rock");
+const scissorsEl = document.querySelector(".scissors");
+const computerweaponEl = document.querySelector(".computerweapon");
+const whowinsEl = document.querySelector(".whowins");
+const playerweaponEl = document.querySelector(".playerweapon");
+const scoreEl = document.querySelector(".score");
+const weaponsEl = document.querySelectorAll(".weapons")
 
-function playRound() {
+rockEl.addEventListener("click", () => {
+  playRound("rock")
+  afterwin()
+})
+
+paperEl.addEventListener("click", () => {
+  playRound("paper")
+  afterwin()
+  console.log("afterwin");
+})
+
+scissorsEl.addEventListener("click", () => {
+  playRound("scissors")
+  afterwin()
+})
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playRound(playersWeapon){
   let computersWeapon = getComputerChoice();
-  let playersWeapon = getPlayerChoice();
-  console.log("Computer's weapon is " + computersWeapon);
+  computerweaponEl.innerText = "Computer's weapon is " + computersWeapon;
+  playerweaponEl.innerText = "Player's weapon is " + playersWeapon;
   if (computersWeapon == playersWeapon) {
-    console.log("Tie");
-    return "Tie";
+    whowinsEl.innerText = "Tie";
   } else if (
     (playersWeapon == "paper" && computersWeapon == "rock") ||
     (playersWeapon == "rock" && computersWeapon == "scissors") ||
     (playersWeapon == "scissors" && computersWeapon == "paper")
   ) {
-    console.log("player wins");
-    return "player wins";
+    whowinsEl.innerText = "player wins";
+    playerScore++;
   } else {
-    console.log("Computer Wins");
-    return "Computer Wins";
+    whowinsEl.innerText = "Computer Wins";
+    computerScore++;
+  }
+  scoreEl.innerText =
+    "player score = " +
+    playerScore +
+    "       " +
+    "computer score = " +
+    computerScore;
+}
+
+function afterwin() {
+  if (playerScore == 5 || computerScore == 5) {
+    computerweaponEl.style.display = "none";
+    // whowinsEl.style.display = "none";
+    playerweaponEl.style.display = "none";
+    rockEl.disabled = true
+    paperEl.disabled = true
+    scissorsEl.disabled = true    
+  
+  }
+  if (playerScore == 5) {
+    whowinsEl.innerText = "Player wins"
+  }
+
+  if (computerScore == 5) {
+    whowinsEl.innerText = "Computer wins"
   }
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let index = 0; index < 5; index++) {
-    let winner = playRound``();
-    if (winner === "player wins") {
-      playerScore++;
-    }
-    if (winner === "Computer Wins") {
-      computerScore++;
-    }
-  }
-  console.log("player score = " + playerScore);
-  console.log("computer score = " + computerScore);
-}
 
-game();
+
+
