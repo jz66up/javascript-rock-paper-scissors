@@ -1,0 +1,86 @@
+
+
+.paper {
+    box-sizing: border-box;
+    background-color: white;
+    width: 250px;
+    padding: 80px;
+    font-size: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.scissors {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 250px;
+    background-color: red;
+    padding: 80px;
+    font-size: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.rock {
+    box-sizing: border-box;
+    width: 250px;
+    background-color: grey;
+    padding: 80px;
+    font-size: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.score {
+    font-size: 30px;
+    color: black;
+}
+
+.whowins{
+    font-size: 50px;
+    color: gold;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+    /* border: cyan 2px solid; */
+    background-color: orange;
+}
+
+
+.weapons {
+    /* border: green 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    /* border: yellow 2px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.computerweapon {
+    font-size: 50px;
+    color: wheat;
+}
+
+.playerweapon {
+    font-size: 50px;
+    color: green;
+}
+
